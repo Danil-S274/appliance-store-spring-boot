@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head('client.page.title')}"></head>
+<body>
+
+<div th:insert="~{menunavy::navy}"></div>
+
+<div class="container mt-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <div>
+            <h1 class="mb-0" th:text="#{appliance.admin.title}">Appliances (Admin)</h1>
+            <div class="text-muted" th:text="#{appliance.admin.subtitle}">Manage appliances</div>
+        </div>
+
+        <div class="d-flex gap-2">
+            <a class="btn btn-primary"
+               th:href="@{/admin/appliances/new(lang=${#locale.language})}"
+               th:text="#{appliance.btn.new}">
+                + New appliance
+            </a>
+        </div>
+    </div>
+
+    <div th:if="${success}" class="alert alert-success" th:text="${success}"></div>
+    <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
+
+    <div class="card shadow-sm">
+        <div class="card-body p-0">
+            <table class="table table-hover mb-0 align-middle">
+
+                <thead class="table-dark">
+                <tr>
+                    <th style="width: 80px;" th:text="#{object.appliance.id}">ID</th>
+                    <th th:text="#{object.appliance.name}">Name</th>
+                    <th th:text="#{object.appliance.manufacturer}">Manufacturer</th>
+                    <th th:text="#{object.appliance.category}">Category</th>
+                    <th th:text="#{object.appliance.powerType}">Power type</th>
+                    <th style="width: 130px;" th:text="#{object.appliance.price}">Price</th>
+                    <th style="width: 280px;" th:text="#{operation}">Actions</th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+                <tr th:each="a : ${appliances}">
+                    <td th:text="${a.id}">1</td>
+                    <td th:text="${a.name}">Vacuum</td>
+                    <td th:text="${a.manufacturerName}">Samsung</td>
+                    <td th:text="${a.category}">KITCHEN</td>
+                    <td th:text="${a.powerType}">AC220</td>
+                    <td th:text="${a.price}">100</td>
+
+                    <td>
+                        <div class="d-flex gap-2 flex-wrap">
+
+                            <a class="btn btn-sm btn-outline-primary"
+                               th:href="@{/catalog/{id}(id=${a.id},lang=${#locale.language})}"
+                               th:text="#{view}">
+                                View
+                            </a>
+
+                            <a class="btn btn-sm btn-outline-secondary"
+                               th:href="@{/admin/appliances/{id}/edit(id=${a.id},lang=${#locale.language})}"
+                               th:text="#{edit}">
+                                Edit
+                            </a>
+
+                            <form th:action="@{/admin/appliances/{id}/delete(id=${a.id},lang=${#locale.language})}"
+                                  method="post"
+                                  th:onsubmit="return confirm([[#{confirm.delete.appliance}]]);">
+                                <input type="hidden"
+                                       th:name="${_csrf.parameterName}"
+                                       th:value="${_csrf.token}"/>
+                                <button class="btn btn-sm btn-outline-danger"
+                                        type="submit"
+                                        th:text="#{delete}">
+                                    Delete
+                                </button>
+                            </form>
+
+                        </div>
+                    </td>
+                </tr>
+
+                <tr th:if="${#lists.isEmpty(appliances)}">
+                    <td colspan="7" class="text-center text-muted p-4" th:text="#{appliance.empty}">
+                        No appliances yet.
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div th:insert="~{footer::footer}"></div>
+</body>
+</html>

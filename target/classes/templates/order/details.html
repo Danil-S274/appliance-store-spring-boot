@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{fragments/head :: head('order.details.title')}"></head>
+<body>
+<div th:insert="~{menunavy::navy}"></div>
+
+<div class="container mt-4">
+
+    <div class="d-flex justify-content-between align-items-center">
+        <h1>
+            <span th:text="#{order.number}">Order</span>
+            #<span th:text="${order.id}">1</span>
+        </h1>
+        <a class="btn btn-secondary" th:href="@{/orders}" th:text="#{back}">Back</a>
+    </div>
+
+    <div class="card mt-3">
+        <div class="card-body">
+            <div>
+                <b th:text="#{object.order.client} + ':'">Client:</b>
+                <span th:text="${order.clientName}"></span>
+            </div>
+            <div>
+                <b th:text="#{object.order.employee} + ':'">Employee:</b>
+                <span th:text="${order.employeeName}"></span>
+            </div>
+            <div>
+                <b th:text="#{orders.status} + ':'">Status:</b>
+                <span th:text="${order.orderStatus}"></span>
+            </div>
+
+            <div class="mt-2 fs-5">
+                <b th:text="#{orders.total} + ':'">Total:</b>
+                <span th:text="${order.amount}"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mt-3">
+        <div class="card-header fw-bold" th:text="#{orders.items}">Items</div>
+        <div class="card-body p-0">
+            <table class="table mb-0">
+                <thead class="table-dark">
+                <tr>
+                    <th th:text="#{orders.item}">Item</th>
+                    <th style="width: 120px;" th:text="#{orders.qty}">Qty</th>
+                    <th th:text="#{orders.amount}">Amount</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:if="${#lists.isEmpty(order.rows)}">
+                    <td colspan="3" class="p-3" th:text="#{orders.no.items}">No items</td>
+                </tr>
+                <tr th:each="r : ${order.rows}">
+                    <td th:text="${r.applianceName}"></td>
+                    <td th:text="${r.number}"></td>
+                    <td th:text="${r.amount}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="mt-3 d-flex gap-2">
+
+        <form sec:authorize="hasRole('EMPLOYEE')"
+              th:if="${order.orderStatus.name() == 'NEW'}"
+              th:action="@{/orders/{id}/approve(id=${order.id})}" method="post">
+            <button class="btn btn-success" type="submit" th:text="#{orders.approve}">Approve</button>
+        </form>
+
+        <form th:if="${order.orderStatus.name() == 'NEW'}"
+              th:action="@{/orders/{id}/cancel(id=${order.id})}" method="post">
+            <button class="btn btn-outline-danger" type="submit" th:text="#{orders.cancel}">Cancel</button>
+        </form>
+
+    </div>
+
+</div>
+
+<div th:insert="~{footer::footer}"></div>
+</body>
+</html>

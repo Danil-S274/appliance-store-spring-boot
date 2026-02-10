@@ -1,8 +1,8 @@
 package com.danil.appliances.mapper;
 
 import com.danil.appliances.config.MapstructConfig;
-import com.danil.appliances.dto.OrderDetailsDto;
-import com.danil.appliances.dto.OrderListItemDto;
+import com.danil.appliances.dto.orders.OrderDetailsDto;
+import com.danil.appliances.dto.orders.OrderListItemDto;
 import com.danil.appliances.model.Orders;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

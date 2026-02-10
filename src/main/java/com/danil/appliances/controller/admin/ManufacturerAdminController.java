@@ -1,6 +1,6 @@
 package com.danil.appliances.controller.admin;
 
-import com.danil.appliances.dto.ManufacturerDto;
+import com.danil.appliances.dto.appliance.ManufacturerDto;
 import com.danil.appliances.mapper.ManufacturerMapper;
 import com.danil.appliances.model.Manufacturer;
 import com.danil.appliances.service.ManufacturerService;

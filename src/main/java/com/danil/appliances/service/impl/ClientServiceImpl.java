@@ -1,7 +1,7 @@
 package com.danil.appliances.service.impl;
 
-import com.danil.appliances.dto.ClientCreateDto;
-import com.danil.appliances.dto.ClientUpdateDto;
+import com.danil.appliances.dto.user.ClientCreateDto;
+import com.danil.appliances.dto.user.ClientUpdateDto;
 import com.danil.appliances.exception.BusinessException;
 import com.danil.appliances.exception.NotFoundException;
 import com.danil.appliances.mapper.ClientMapper;

@@ -1,6 +1,6 @@
 package com.danil.appliances.controller;
 
-import com.danil.appliances.dto.CheckoutRequestDto;
+import com.danil.appliances.dto.account.CheckoutRequestDto;
 import com.danil.appliances.mapper.OrderMapper;
 import com.danil.appliances.model.Orders;
 import com.danil.appliances.service.AccountService;

@@ -1,6 +1,6 @@
 package com.danil.appliances.repository.spec;
 
-import com.danil.appliances.dto.ApplianceSearchFilter;
+import com.danil.appliances.dto.appliance.ApplianceSearchFilter;
 import com.danil.appliances.model.Appliance;
 import com.danil.appliances.model.Manufacturer;
 import jakarta.persistence.criteria.Join;

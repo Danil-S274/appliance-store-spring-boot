@@ -1,7 +1,7 @@
 package com.danil.appliances.controller;
 
-import com.danil.appliances.dto.ChangePasswordDto;
-import com.danil.appliances.dto.EmployeeUpdateDto;
+import com.danil.appliances.dto.account.ChangePasswordDto;
+import com.danil.appliances.dto.user.EmployeeUpdateDto;
 import com.danil.appliances.model.Employee;
 import com.danil.appliances.service.EmployeeService;
 import jakarta.validation.Valid;

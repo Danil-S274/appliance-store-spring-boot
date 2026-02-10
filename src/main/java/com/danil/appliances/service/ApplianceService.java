@@ -1,7 +1,7 @@
 package com.danil.appliances.service;
 
-import com.danil.appliances.dto.ApplianceDto;
-import com.danil.appliances.dto.ApplianceSearchFilter;
+import com.danil.appliances.dto.appliance.ApplianceDto;
+import com.danil.appliances.dto.appliance.ApplianceSearchFilter;
 import com.danil.appliances.model.Appliance;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

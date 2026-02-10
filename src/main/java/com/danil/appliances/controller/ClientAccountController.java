@@ -1,9 +1,9 @@
 package com.danil.appliances.controller;
 
-import com.danil.appliances.dto.AccountUpdateDto;
-import com.danil.appliances.dto.ChangePasswordDto;
-import com.danil.appliances.dto.TopUpBalanceDto;
-import com.danil.appliances.dto.UpdateCardDto;
+import com.danil.appliances.dto.account.AccountUpdateDto;
+import com.danil.appliances.dto.account.ChangePasswordDto;
+import com.danil.appliances.dto.account.TopUpBalanceDto;
+import com.danil.appliances.dto.account.UpdateCardDto;
 import com.danil.appliances.exception.BusinessException;
 import com.danil.appliances.model.Client;
 import com.danil.appliances.security.jwt.CookieProperties;

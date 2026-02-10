@@ -1,7 +1,7 @@
 package com.danil.appliances.service.impl;
 
-import com.danil.appliances.dto.ApplianceDto;
-import com.danil.appliances.dto.ApplianceSearchFilter;
+import com.danil.appliances.dto.appliance.ApplianceDto;
+import com.danil.appliances.dto.appliance.ApplianceSearchFilter;
 import com.danil.appliances.exception.BusinessException;
 import com.danil.appliances.exception.NotFoundException;
 import com.danil.appliances.mapper.ApplianceMapper;

@@ -1,6 +1,6 @@
 package com.danil.appliances.service.impl;
 
-import com.danil.appliances.dto.ManufacturerDto;
+import com.danil.appliances.dto.appliance.ManufacturerDto;
 import com.danil.appliances.exception.BusinessException;
 import com.danil.appliances.exception.NotFoundException;
 import com.danil.appliances.mapper.ManufacturerMapper;

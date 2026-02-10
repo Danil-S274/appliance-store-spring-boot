@@ -1,8 +1,8 @@
 package com.danil.appliances.service;
 
-import com.danil.appliances.dto.AccountUpdateDto;
-import com.danil.appliances.dto.ChangePasswordDto;
-import com.danil.appliances.dto.UpdateCardDto;
+import com.danil.appliances.dto.account.AccountUpdateDto;
+import com.danil.appliances.dto.account.ChangePasswordDto;
+import com.danil.appliances.dto.account.UpdateCardDto;
 import com.danil.appliances.model.Client;
 
 import java.math.BigDecimal;

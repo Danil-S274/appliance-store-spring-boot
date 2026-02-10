@@ -1,7 +1,7 @@
 package com.danil.appliances.service;
 
-import com.danil.appliances.dto.CheckoutRequestDto;
-import com.danil.appliances.dto.OrderCreateDto;
+import com.danil.appliances.dto.account.CheckoutRequestDto;
+import com.danil.appliances.dto.orders.OrderCreateDto;
 import com.danil.appliances.model.Orders;
 import org.springframework.security.core.Authentication;
 

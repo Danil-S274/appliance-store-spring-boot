@@ -1,4 +1,4 @@
-package com.danil.appliances.dto;
+package com.danil.appliances.dto.account;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

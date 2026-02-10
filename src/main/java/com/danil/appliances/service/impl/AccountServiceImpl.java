@@ -1,9 +1,9 @@
 package com.danil.appliances.service.impl;
 
 import com.danil.appliances.aspect.Loggable;
-import com.danil.appliances.dto.AccountUpdateDto;
-import com.danil.appliances.dto.ChangePasswordDto;
-import com.danil.appliances.dto.UpdateCardDto;
+import com.danil.appliances.dto.account.AccountUpdateDto;
+import com.danil.appliances.dto.account.ChangePasswordDto;
+import com.danil.appliances.dto.account.UpdateCardDto;
 import com.danil.appliances.exception.BusinessException;
 import com.danil.appliances.exception.NotFoundException;
 import com.danil.appliances.model.Client;

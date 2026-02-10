@@ -1,6 +1,6 @@
 package com.danil.appliances.controller;
 
-import com.danil.appliances.dto.RegisterDto;
+import com.danil.appliances.dto.account.RegisterDto;
 import com.danil.appliances.security.IpUtils;
 import com.danil.appliances.security.jwt.*;
 import com.danil.appliances.service.AuthService;

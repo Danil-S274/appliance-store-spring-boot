@@ -1,9 +1,9 @@
 package com.danil.appliances.mapper;
 
 import com.danil.appliances.config.MapstructConfig;
-import com.danil.appliances.dto.ClientCreateDto;
-import com.danil.appliances.dto.ClientDto;
-import com.danil.appliances.dto.ClientUpdateDto;
+import com.danil.appliances.dto.user.ClientCreateDto;
+import com.danil.appliances.dto.user.ClientDto;
+import com.danil.appliances.dto.user.ClientUpdateDto;
 import com.danil.appliances.model.Client;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

@@ -1,7 +1,7 @@
 package com.danil.appliances.mapper;
 
 import com.danil.appliances.config.MapstructConfig;
-import com.danil.appliances.dto.ApplianceDto;
+import com.danil.appliances.dto.appliance.ApplianceDto;
 import com.danil.appliances.model.Appliance;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

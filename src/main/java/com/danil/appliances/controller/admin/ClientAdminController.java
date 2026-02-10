@@ -1,7 +1,7 @@
 package com.danil.appliances.controller.admin;
 
-import com.danil.appliances.dto.ClientDto;
-import com.danil.appliances.dto.ClientUpdateDto;
+import com.danil.appliances.dto.user.ClientDto;
+import com.danil.appliances.dto.user.ClientUpdateDto;
 import com.danil.appliances.mapper.ClientMapper;
 import com.danil.appliances.model.Client;
 import com.danil.appliances.service.ClientService;

@@ -1,4 +1,4 @@
-package com.danil.appliances.dto;
+package com.danil.appliances.dto.orders;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;

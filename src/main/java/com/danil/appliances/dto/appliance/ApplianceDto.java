@@ -1,4 +1,4 @@
-package com.danil.appliances.dto;
+package com.danil.appliances.dto.appliance;
 
 import com.danil.appliances.model.Category;
 import com.danil.appliances.model.PowerType;

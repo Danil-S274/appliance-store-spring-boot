@@ -1,7 +1,7 @@
 package com.danil.appliances.controller;
 
-import com.danil.appliances.dto.ApplianceDto;
-import com.danil.appliances.dto.ApplianceSearchFilter;
+import com.danil.appliances.dto.appliance.ApplianceDto;
+import com.danil.appliances.dto.appliance.ApplianceSearchFilter;
 import com.danil.appliances.mapper.ApplianceMapper;
 import com.danil.appliances.mapper.ManufacturerMapper;
 import com.danil.appliances.model.Appliance;

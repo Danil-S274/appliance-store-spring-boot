@@ -1,8 +1,8 @@
 package com.danil.appliances.service.impl;
 
 import com.danil.appliances.aspect.Loggable;
-import com.danil.appliances.dto.CheckoutRequestDto;
-import com.danil.appliances.dto.OrderCreateDto;
+import com.danil.appliances.dto.account.CheckoutRequestDto;
+import com.danil.appliances.dto.orders.OrderCreateDto;
 import com.danil.appliances.exception.BusinessException;
 import com.danil.appliances.exception.NotFoundException;
 import com.danil.appliances.model.*;

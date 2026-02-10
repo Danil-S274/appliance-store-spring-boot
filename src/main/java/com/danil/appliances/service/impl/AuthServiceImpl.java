@@ -1,6 +1,6 @@
 package com.danil.appliances.service.impl;
 
-import com.danil.appliances.dto.RegisterDto;
+import com.danil.appliances.dto.account.RegisterDto;
 import com.danil.appliances.exception.BusinessException;
 import com.danil.appliances.model.Client;
 import com.danil.appliances.repository.ClientRepository;

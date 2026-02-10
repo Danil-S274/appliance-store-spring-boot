@@ -1,13 +1,17 @@
-package com.danil.appliances.dto;
+package com.danil.appliances.dto.user;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Data
-public class AccountUpdateDto {
+public class EmployeeUpdateDto {
 
     @NotBlank
     @Size(min = 3, max = 100)
     private String name;
+
+    @NotBlank
+    @Size(max = 100)
+    private String department;
 }

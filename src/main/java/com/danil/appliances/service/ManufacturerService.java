@@ -1,6 +1,6 @@
 package com.danil.appliances.service;
 
-import com.danil.appliances.dto.ManufacturerDto;
+import com.danil.appliances.dto.appliance.ManufacturerDto;
 import com.danil.appliances.model.Manufacturer;
 
 import java.util.List;

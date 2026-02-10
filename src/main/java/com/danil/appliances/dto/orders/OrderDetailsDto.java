@@ -1,14 +1,19 @@
-package com.danil.appliances.dto;
+package com.danil.appliances.dto.orders;
 
 import com.danil.appliances.model.OrderStatus;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Data
 @Builder
-public class OrderListItemDto {
+@AllArgsConstructor
+@NoArgsConstructor
+public class OrderDetailsDto {
 
     private Long id;
 
@@ -19,5 +24,6 @@ public class OrderListItemDto {
     private OrderStatus orderStatus;
 
     private BigDecimal amount;
-}
 
+    private List<OrderRowDto> rows;
+}

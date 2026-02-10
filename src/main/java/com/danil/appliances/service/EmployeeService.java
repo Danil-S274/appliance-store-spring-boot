@@ -1,7 +1,7 @@
 package com.danil.appliances.service;
 
-import com.danil.appliances.dto.EmployeeCreateDto;
-import com.danil.appliances.dto.EmployeeUpdateDto;
+import com.danil.appliances.dto.user.EmployeeCreateDto;
+import com.danil.appliances.dto.user.EmployeeUpdateDto;
 import com.danil.appliances.model.Employee;
 
 import java.util.List;

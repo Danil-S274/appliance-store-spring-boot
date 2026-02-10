@@ -1,7 +1,7 @@
 package com.danil.appliances.controller.admin;
 
-import com.danil.appliances.dto.ApplianceDto;
-import com.danil.appliances.dto.ManufacturerDto;
+import com.danil.appliances.dto.appliance.ApplianceDto;
+import com.danil.appliances.dto.appliance.ManufacturerDto;
 import com.danil.appliances.exception.BusinessException;
 import com.danil.appliances.mapper.ApplianceMapper;
 import com.danil.appliances.mapper.ManufacturerMapper;

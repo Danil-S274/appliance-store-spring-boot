@@ -1,9 +1,9 @@
 package com.danil.appliances.controller.admin;
 
-import com.danil.appliances.dto.AdminSetPasswordDto;
-import com.danil.appliances.dto.EmployeeCreateDto;
-import com.danil.appliances.dto.EmployeeDto;
-import com.danil.appliances.dto.EmployeeUpdateDto;
+import com.danil.appliances.dto.account.AdminSetPasswordDto;
+import com.danil.appliances.dto.user.EmployeeCreateDto;
+import com.danil.appliances.dto.user.EmployeeDto;
+import com.danil.appliances.dto.user.EmployeeUpdateDto;
 import com.danil.appliances.mapper.EmployeeMapper;
 import com.danil.appliances.model.Employee;
 import com.danil.appliances.service.EmployeeService;

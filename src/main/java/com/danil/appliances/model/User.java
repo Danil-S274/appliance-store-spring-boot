@@ -29,13 +29,16 @@ public abstract class User {
     @Column(unique = true, nullable = false)
     private String email;
 
-    @NotBlank
     @Size(min = 8, max = 200)
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String password;
 
     @Column(nullable = false)
     private boolean enabled = true;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private AuthProvider provider = AuthProvider.LOCAL;
 }
 
 

@@ -1,5 +1,6 @@
 package com.danil.appliances.service.impl;
 
+import com.danil.appliances.aspect.Loggable;
 import com.danil.appliances.dto.CheckoutRequestDto;
 import com.danil.appliances.dto.OrderCreateDto;
 import com.danil.appliances.exception.BusinessException;
@@ -63,6 +64,7 @@ public class OrderCommandServiceImpl implements OrderCommandService {
     }
 
     @Override
+    @Loggable(args = true)
     public void addItemToDraft(String clientEmail, Long applianceId, long quantity) {
         if (quantity <= 0) throw new IllegalArgumentException("quantity must be > 0");
 
@@ -142,6 +144,7 @@ public class OrderCommandServiceImpl implements OrderCommandService {
     }
 
     @Override
+    @Loggable(args = true)
     public Orders checkout(String clientEmail) {
         Client client = this.reqireClient(clientEmail);
 
@@ -174,6 +177,7 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 
 
     @Override
+    @Loggable(args = true)
     public Orders approve(Long orderId, Authentication auth) {
         Orders order = this.ordersRepository.findById(orderId)
                 .orElseThrow(() -> new NotFoundException("Order not found: %d".formatted(orderId)));
@@ -193,6 +197,7 @@ public class OrderCommandServiceImpl implements OrderCommandService {
     }
 
     @Override
+    @Loggable(args = true)
     public Orders cancel(Long orderId, Authentication auth) {
         Orders order = getOrderForRead(orderId, auth);
 
@@ -220,6 +225,7 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 
 
     @Override
+    @Loggable(args = true)
     public void deleteOrder(Long orderId, Authentication auth) {
         Orders order = this.getOrderForRead(orderId, auth);
 

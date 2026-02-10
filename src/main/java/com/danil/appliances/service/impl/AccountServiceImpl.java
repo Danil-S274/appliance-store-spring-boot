@@ -1,5 +1,6 @@
 package com.danil.appliances.service.impl;
 
+import com.danil.appliances.aspect.Loggable;
 import com.danil.appliances.dto.AccountUpdateDto;
 import com.danil.appliances.dto.ChangePasswordDto;
 import com.danil.appliances.dto.UpdateCardDto;
@@ -28,6 +29,7 @@ public class AccountServiceImpl implements AccountService {
 
     private final OrdersRepository ordersRepository;
     private final ClientRepository clientRepository;
+
     private final PasswordEncoder passwordEncoder;
 
     @Override
@@ -84,6 +86,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
+    @Loggable(args = true)
     public BigDecimal topUpBalance(String email, BigDecimal amount) {
         if (amount == null || amount.compareTo(BigDecimal.ZERO) <= 0) {
             throw new BusinessException("Top up amount must be > 0");
@@ -143,7 +146,8 @@ public class AccountServiceImpl implements AccountService {
         }
     }
 
-    private record CardData(String last4, String hashHex) {}
+    private record CardData(String last4, String hashHex) {
+    }
 }
 
 

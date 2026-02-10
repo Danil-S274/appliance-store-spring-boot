@@ -20,12 +20,14 @@ CREATE TABLE client
     email      VARCHAR(150)   NOT NULL UNIQUE,
     password   VARCHAR(200)   NOT NULL,
     enabled    BOOLEAN        NOT NULL,
+    provider   VARCHAR(20)    NOT NULL DEFAULT 'LOCAL',
 
     card_last4 VARCHAR(4),
     card_hash  VARCHAR(64),
 
     balance    DECIMAL(12, 2) NOT NULL
 );
+
 
 CREATE INDEX idx_client_email ON client (email);
 
@@ -36,6 +38,7 @@ CREATE TABLE employee
     email      VARCHAR(150) NOT NULL UNIQUE,
     password   VARCHAR(200) NOT NULL,
     enabled    BOOLEAN      NOT NULL,
+    provider   VARCHAR(20)  NOT NULL DEFAULT 'LOCAL',
     department VARCHAR(100) NOT NULL
 );
 

@@ -15,12 +15,14 @@ public interface EmployeeMapper {
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "enabled", ignore = true)
     @Mapping(target = "password", ignore = true)
+    @Mapping(target = "provider", ignore = true)
     Employee toEntity(EmployeeCreateDto dto);
 
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "email", ignore = true)
     @Mapping(target = "enabled", ignore = true)
     @Mapping(target = "password", ignore = true)
+    @Mapping(target = "provider", ignore = true)
     void updateEntity(EmployeeUpdateDto dto, @MappingTarget Employee entity);
 
     EmployeeDto toDto(Employee entity);

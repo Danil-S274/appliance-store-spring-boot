@@ -49,6 +49,8 @@ public class JwtService {
 
         return Jwts.builder()
                 .subject(user.getUsername())
+                .issuer("https://appliance-store.com")
+                .audience().add("appliance-store").and()
                 .claim(
                         JwtClaims.ROLES,
                         user.getAuthorities().stream()
@@ -91,10 +93,10 @@ public class JwtService {
 
     public boolean isValid(String token, JwtType expectedType) {
         try {
-            Claims c = parse(token).getPayload();
-            if (!expectedType.name().equals(c.get(JwtClaims.TYPE))) return false;
-            if (c.getSubject() == null || c.getSubject().isBlank()) return false;
-            return c.getExpiration() != null && c.getExpiration().after(new Date());
+            Claims claims = parse(token).getPayload();
+            if (!expectedType.name().equals(claims.get(JwtClaims.TYPE))) return false;
+            if (claims.getSubject() == null || claims.getSubject().isBlank()) return false;
+            return claims.getExpiration() != null && claims.getExpiration().after(new Date());
         } catch (JwtException | IllegalArgumentException e) {
             return false;
         }

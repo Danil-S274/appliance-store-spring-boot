@@ -19,7 +19,6 @@ public class RefreshTokenService {
 
     private final RefreshTokenRepository refreshTokenRepository;
     private final JwtService jwtService;
-    private final JwtProperties jwtProperties;
 
     public void store(String userEmail, String refreshJwt) {
         String jti = this.jwtService.extractJti(refreshJwt);
@@ -34,7 +33,7 @@ public class RefreshTokenService {
     }
 
     public TokenPair rotate(String refreshJwt, UserDetails userDetails) {
-        if (!jwtService.isValid(refreshJwt, JwtType.REFRESH)) {
+        if (!this.jwtService.isValid(refreshJwt, JwtType.REFRESH)) {
             throw new BusinessException("Invalid refresh token");
         }
 

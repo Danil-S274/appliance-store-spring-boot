@@ -18,15 +18,9 @@ public interface OrdersRepository extends JpaRepository<Orders, Long> {
 
     Optional<Orders> findByClientIdAndOrderStatus(Long clientId, OrderStatus orderStatus);
 
-    List<Orders> findByClientIdAndOrderStatusNot(Long clientId, OrderStatus orderStatus);
-
     @Query("select o from Orders o left join fetch o.rows r left join fetch r.appliance where o.id = :id")
     Optional<Orders> findWithRowsById(Long id);
 
     boolean existsByClientIdAndOrderStatus(Long clientId, OrderStatus orderStatus);
-
-    boolean existsByClientIdAndOrderStatusIn(Long clientId, List<OrderStatus> statuses);
-
-
 }
 

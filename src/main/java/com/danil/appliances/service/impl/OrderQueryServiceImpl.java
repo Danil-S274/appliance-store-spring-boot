@@ -1,5 +1,6 @@
 package com.danil.appliances.service.impl;
 
+import com.danil.appliances.aspect.Loggable;
 import com.danil.appliances.exception.NotFoundException;
 import com.danil.appliances.model.Client;
 import com.danil.appliances.model.OrderStatus;
@@ -43,6 +44,7 @@ public class OrderQueryServiceImpl implements OrderQueryService {
     }
 
     @Override
+    @Loggable(args = true)
     public Orders getDetailsForClient(Long orderId, String clientEmail) {
         Orders order = this.ordersRepository.findWithRowsById(orderId)
                 .orElseThrow(() -> new NotFoundException("Order not found: %d".formatted(orderId)));
@@ -80,12 +82,12 @@ public class OrderQueryServiceImpl implements OrderQueryService {
         boolean isEmployee = auth.getAuthorities().stream().anyMatch(a ->
                 a.getAuthority().equals("ROLE_EMPLOYEE"));
 
-        if(isEmployee) return order;
+        if (isEmployee) return order;
 
         Client client = this.clientRepository.findByEmail(auth.getName())
                 .orElseThrow(() -> new NotFoundException("Client not found: %s".formatted(auth.getName())));
 
-        if(!order.getClient().getId().equals(client.getId())) {
+        if (!order.getClient().getId().equals(client.getId())) {
             throw new AccessDeniedException("Forbidden");
         }
 

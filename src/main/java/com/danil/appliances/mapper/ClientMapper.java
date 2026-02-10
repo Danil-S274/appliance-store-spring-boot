@@ -18,6 +18,7 @@ public interface ClientMapper {
     @Mapping(target = "balance", ignore = true)
     @Mapping(target = "cardHash", ignore = true)
     @Mapping(target = "cardLast4", ignore = true)
+    @Mapping(target = "provider", ignore = true)
     Client toEntity(ClientCreateDto dto);
 
     @Mapping(target = "id", ignore = true)
@@ -27,6 +28,7 @@ public interface ClientMapper {
     @Mapping(target = "balance", ignore = true)
     @Mapping(target = "cardHash", ignore = true)
     @Mapping(target = "cardLast4", ignore = true)
+    @Mapping(target = "provider", ignore = true)
     void updateEntity(ClientUpdateDto dto, @MappingTarget Client entity);
 
     ClientDto toDto(Client entity);

@@ -29,6 +29,7 @@ public class ApplianceServiceImpl implements ApplianceService {
 
     private final ApplianceRepository applianceRepository;
     private final ManufacturerRepository manufacturerRepository;
+
     private final ApplianceMapper applianceMapper;
 
     @Override

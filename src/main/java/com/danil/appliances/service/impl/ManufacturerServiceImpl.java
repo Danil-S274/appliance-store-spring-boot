@@ -23,6 +23,7 @@ public class ManufacturerServiceImpl implements ManufacturerService {
 
     private final ManufacturerRepository manufacturerRepository;
     private final ApplianceRepository applianceRepository;
+
     private final ManufacturerMapper manufacturerMapper;
 
     @Override

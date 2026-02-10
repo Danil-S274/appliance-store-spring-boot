@@ -4,6 +4,8 @@ import com.danil.appliances.repository.ClientRepository;
 import com.danil.appliances.repository.EmployeeRepository;
 import com.danil.appliances.security.LoginPreCheckFilter;
 import com.danil.appliances.security.jwt.*;
+import com.danil.appliances.security.oauth.CustomOidcUserService;
+import com.danil.appliances.security.oauth.OAuth2SuccessHandler;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -104,7 +106,9 @@ public class SecurityConfig {
     @Order(2)
     public SecurityFilterChain appChain(HttpSecurity http,
                                         JwtAuthenticationFilter jwtFilter,
-                                        LoginPreCheckFilter loginPreCheckFilter) throws Exception {
+                                        LoginPreCheckFilter loginPreCheckFilter,
+                                        CustomOidcUserService customOidcUserService,
+                                        OAuth2SuccessHandler oAuth2SuccessHandler) throws Exception {
 
         http
                 .sessionManagement(sessionManagementConfigurer ->
@@ -121,8 +125,10 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         // public
                         .requestMatchers(
-                                "/", "/login", "/register", "/auth/refresh", "/catalog/**",
-                                "/css/**", "/js/**", "/images/**", "/webjars/**"
+                                "/", "/login", "/register", "/auth/refresh",
+                                "/catalog/**",
+                                "/oauth2/**", "/login/oauth2/**",
+                                "/css/**", "/js/**", "/images/**"
                         ).permitAll()
 
                         // client
@@ -135,21 +141,29 @@ public class SecurityConfig {
 
                         // authenticated
                         .requestMatchers("/orders/**").authenticated()
-
                         .anyRequest().authenticated()
+
                 )
                 .addFilterBefore(jwtFilter, CsrfFilter.class)
                 .addFilterBefore(loginPreCheckFilter, UsernamePasswordAuthenticationFilter.class)
-
                 .exceptionHandling(eh -> eh
-                        .authenticationEntryPoint((req, res, ex) -> res.sendRedirect("/login"))
-                        .accessDeniedHandler((req, res, ex) -> res.sendRedirect("/login"))
+                        .authenticationEntryPoint((req, res, ex) ->
+                                res.sendRedirect("/login"))
+                        .accessDeniedHandler((req, res, ex) ->
+                                res.sendRedirect("/login"))
+                )
+                .oauth2Login(oauth -> oauth
+                        .loginPage("/login")
+                        .userInfoEndpoint(ui -> ui
+                                .oidcUserService(customOidcUserService)
+                        )
+                        .successHandler(oAuth2SuccessHandler)
                 )
 
-                .logout(l -> l
+                .logout(logoutConfigurer -> logoutConfigurer
                         .logoutUrl("/logout")
                         .logoutSuccessHandler((req, res, auth) -> {
-                            JwtCookieUtils.clear(res, cookieProps);
+                            JwtCookieUtils.clear(res, this.cookieProps);
                             res.sendRedirect("/");
                         })
                 )
